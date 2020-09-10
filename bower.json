@@ -1,0 +1,20 @@
+{
+  "name": "php_oe28_game_store",
+  "description": "",
+  "main": "",
+  "authors": [
+    "intern-tieumomo <intern.tieumomo@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/intern-tieumomo/php_oe28_game_store",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "https://github.com/twbs/bootstrap.git#^4.5.2"
+  }
+}
