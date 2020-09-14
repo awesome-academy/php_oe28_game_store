@@ -2,13 +2,26 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
-class Account extends Model
+class Account extends Model implements Authenticatable
 {
+    use AuthenticatableTrait;
+    use Notifiable;
+
     protected $fillable = [
         'email',
+        'password',
+        'role',
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
 
     public function user()
     {
