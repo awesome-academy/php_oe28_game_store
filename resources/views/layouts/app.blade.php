@@ -27,31 +27,65 @@
                     
                     <div class="col-12 col-md-3 col-lg-3 order-md-1 order-lg-1 mt-20 mb-20">
                         <div class="logo">
-                            <a href="index.html"><img src="{{ asset('images/logo.png') }}" alt=""></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}" alt=""></a>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-12 order-md-3 order-lg-2 d-flex justify-content-center">
                         <nav class="main-menu menu-style-2">
                             <ul>
-                                <li><a href="games.html">{{ trans('text.app.games') }}</a></li>
-                                <li><a href="video.html">{{ trans('text.app.videos') }}</a></li>
-                                <li><a href="forum.html">{{ trans('text.app.blogs') }}</a></li>
-                                <li><a href="forum.html">{{ trans('text.app.cart') }}</a></li>
-                                <li><a href="contact.html">{{ trans('text.app.contact') }}</a></li>
+                                <li><a href="#">{{ trans('text.app.games') }}</a></li>
+                                <li><a href="#">{{ trans('text.app.videos') }}</a></li>
+                                <li><a href="#">{{ trans('text.app.blogs') }}</a></li>
+                                <li><a href="#">{{ trans('text.app.cart') }}</a></li>
+                                <li><a href="javascript:void(0)">{{ trans('text.app.language') }}</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="{!! route('change-language', ['en']) !!}">{{ trans('text.app.en') }}</a></li>
+                                        <li><a href="{!! route('change-language', ['vi']) !!}">{{ trans('text.app.vi') }}</a></li>
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                     </div>
 
-                    <div class="col-12 col-md-9 order-md-2 order-lg-3 col-lg-3">
-                        <div class="header-right-wrap">
-                            <ul>
-                                <li><a href="login.html">{{ trans('text.app.login') }}</a></li>
-                                <li><a href="register.html">{{ trans('text.app.register') }}</a></li>
-                            </ul>
+                    @if (!Auth::check())
+                        <div class="col-12 col-md-9 order-md-2 order-lg-3 col-lg-3">
+                            <div class="header-right-wrap">
+                                <ul>
+                                    <li><a href="{{ route('login') }}">{{ trans('text.app.login') }}</a></li>
+                                    <li><a href="{{ route('register') }}">{{ trans('text.app.register') }}</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    
+                    @else
+                        <div class="col-12 col-md-9 order-md-2 order-lg-3 col-lg-3">
+                            <div class="header-right-wrap">
+                                <ul>
+                                    <li><a class="dropdown-toggle" href="javascript:void(0)" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i></a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <button class="dropdown-item" type="button" disabled>
+                                                {{ trans('text.app.logged_in') }} {{ Auth::user()->email }}
+                                            </button>
+                                            <div class="dropdown-divider"></div>
+                                            <button type="submit" class="dropdown-item" type="button">
+                                                @if (Auth::user()->role == config('role.user'))
+                                                    {{ trans('text.app.user_info') }}
+                                                @else
+                                                    {{ trans('text.app.publisher_info') }}
+                                                @endif
+                                            </button>
+                                            <form action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="dropdown-item" type="button">
+                                                    {{ trans('text.app.logout') }}
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 
                 <div class="row">
@@ -87,7 +121,7 @@
                                     <ul>
                                         <li><a href="#">{{ trans('text.app.blogs') }}</a></li>
                                         <li><a href="#">{{ trans('text.app.cart') }}</a></li>
-                                        <li><a href="#">{{ trans('text.app.support') }}</a></li>
+                                        <li><a href="#">{{ trans('text.app.contact') }}</a></li>
                                         <li><a href="#">{{ trans('text.app.terms&conditions') }}</a></li>
                                     </ul>
                                 </nav>
