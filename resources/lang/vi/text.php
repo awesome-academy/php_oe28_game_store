@@ -1,7 +1,7 @@
 <?php
 return [
     'app' => [
-        'title' => 'Trang Chủ || Game Store',
+        'title' => 'Game Store',
         'home' => 'TRANG CHỦ',
         'games' => 'TRÒ CHƠI',
         'videos' => 'VIDEOS',
@@ -22,6 +22,7 @@ return [
         'vi' => 'VI',
     ],
     'home' => [
+        'title' => 'Trang Chủ || Game Store',
         'buy_now' => 'MUA NGAY',
         'featured_games' => 'TRÒ CHƠI NỔI BẬT',
         'view_all_games' => 'XEM TẤT CẢ',
@@ -41,6 +42,7 @@ return [
         'enter_your_email_here' => 'Nhập email của bạn tại đây',
     ],
     'login' => [
+        'title' => 'Đăng Nhập || Game Store',
         'login_to' => 'Đăng nhập tài khoản của bạn',
         'shopping' => 'Để bắt đầu mua sắm',
         'login' => 'ĐĂNG NHẬP',
@@ -52,6 +54,7 @@ return [
         'enter_your_password' => 'Nhập mật khẩu',
     ],
     'register' => [
+        'title' => 'Đăng Ký || Game Store',
         'need_info' => 'Thông tin cần thiết để bắt đầu đăng ký',
         'type_your_email_address' => 'Nhập email',
         'enter_your_password' => 'Nhập mật khẩu',
@@ -61,5 +64,23 @@ return [
         'login_with' => 'ĐĂNG NHẬP BẰNG',
         'have_account' => 'Đã có tài khoản? chọn',
         'login' => 'ĐĂNG NHẬP',
+    ],
+    'profile' => [
+        'title' => 'Thông Tin || Game Store',
+        'user_info' => 'Thông tin cá nhân',
+        'name' => 'Tên*',
+        'birthday' => 'Ngày sinh*',
+        'address' => 'Địa chỉ*',
+        'phone' => 'Số điện thoại*',
+        'update' => 'CẬP NHẬT',
+        'reset' => 'HOÀN TÁC',
+        'payment_history' => 'Lịch sử mua',
+        'recently' => 'Gần đây',
+        'payment' => 'Hóa đơn',
+        'view_all' => 'Xem tất cả',
+        'publisher_info' => 'Thông tin nhà phát hành',
+        'publish_history' => 'Lịch sử phát hành',
+        'game' => 'Trò chơi',
+        'updated' => 'Đã cập nhật',
     ],
 ];

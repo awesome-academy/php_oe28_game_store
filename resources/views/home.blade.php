@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    {{ trans('text.home.title') }}
+@endsection
+
 @section('content')
     <div class="hero-section section position-relative">
         <div class="hero-slider">
