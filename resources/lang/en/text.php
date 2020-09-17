@@ -1,7 +1,7 @@
 <?php
 return [
     'app' => [
-        'title' => 'Home || Game Store',
+        'title' => 'Game Store',
         'home' => 'HOME',
         'games' => 'GAMES',
         'videos' => 'VIDEOS',
@@ -22,6 +22,7 @@ return [
         'vi' => 'VI',
     ],
     'home' => [
+        'title' => 'Home || Game Store',
         'buy_now' => 'BUY NOW',
         'featured_games' => 'FEATURED GAMES',
         'view_all_games' => 'VIEW ALL GAMES',
@@ -41,6 +42,7 @@ return [
         'enter_your_email_here' => 'Enter your email here',
     ],
     'login' => [
+        'title' => 'Login || Game Store',
         'login_to' => 'Login to your account',
         'shopping' => 'To start shopping',
         'login' => 'LOGIN',
@@ -52,6 +54,7 @@ return [
         'enter_your_password' => 'Enter your password',
     ],
     'register' => [
+        'title' => 'Register || Game Store',
         'need_info' => 'We will need for your registration',
         'type_your_email_address' => 'Type your email address',
         'enter_your_password' => 'Enter your password',
@@ -61,5 +64,23 @@ return [
         'login_with' => 'LOGIN WITH',
         'have_account' => 'Have an account? please click',
         'login' => 'LOGIN',
+    ],
+    'profile' => [
+        'title' => 'Profile || Game Store',
+        'user_info' => 'User Info',
+        'name' => 'Name*',
+        'birthday' => 'Birthday*',
+        'address' => 'Address*',
+        'phone' => 'Phone no*',
+        'update' => 'UPDATE',
+        'reset' => 'RESET',
+        'payment_history' => 'Payment History',
+        'recently' => 'Recently',
+        'payment' => 'Payment',
+        'view_all' => 'View All',
+        'publisher_info' => 'Publisher Info',
+        'publish_history' => 'Publish History',
+        'game' => 'Game',
+        'updated' => 'Updated',
     ],
 ];

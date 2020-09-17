@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('locale')->group(function () {
-	Route::get('change-language/{lang}', 'HomeController@changeLanguage')->name('change-language');
+Route::get('change-language/{lang}', 'HomeController@changeLanguage')->name('change-language');
 
-	Auth::routes();
-	Route::get('/', 'HomeController@index')->name('home');
+Route::middleware('locale')->group(function () {
+    Auth::routes();
+
+    Route::get('/', 'HomeController@index')->name('home');
+
+    Route::get('profile', 'ProfileController@index')->name('profile.index');
+    Route::post('user-profile', 'ProfileController@updateUser')->name('user.profile.store');
+    Route::post('publisher-profile', 'ProfileController@updatePublisher')->name('publisher.profile.store');
 });
