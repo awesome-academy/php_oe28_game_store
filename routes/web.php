@@ -25,4 +25,5 @@ Route::middleware('locale')->group(function () {
     Route::post('publisher-profile', 'ProfileController@updatePublisher')->name('publisher.profile.store');
 
     Route::get('games', 'GameController@index')->name('games.index');
+    Route::get('game-detail', 'GameController@gameDetail')->name('games.detail');
 });
