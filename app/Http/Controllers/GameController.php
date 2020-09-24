@@ -44,4 +44,36 @@ class GameController extends Controller
 
         return view('games', compact('games', 'data'));
     }
+
+    public function gameDetail(Request $request)
+    {
+        if ($request->missing('id')) {
+            return redirect()->back();
+        }
+
+        try {
+            $game = Game::findOrFail($request->id);
+        } catch (ModelNotFoundException $e) {
+            return redirect()->back();
+        }
+
+        $isBuy = false;
+        $paymentDetail = PaymentDetail::where([
+            'game_id' => $game->id,
+            'account_id' => Auth::id(),
+        ])->first();
+
+        $role = Config::get('role.guest');
+        if (Auth::check()) {
+            $role = Auth::user()->role;
+        }
+
+        if ($paymentDetail !== null || $role == Config::get('role.publisher'))
+            $isBuy = true;
+        
+        $newestGames = Game::limit(Config::get('limit_new_games'))->orderBy('id', 'desc')->get();
+        $recomendedGames = Game::limit(Config::get('limit_new_games'))->orderBy('id', 'desc')->get();
+
+        return view('game-detail', compact('game', 'newestGames', 'recomendedGames', 'isBuy', 'role'));
+    }
 }
