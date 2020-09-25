@@ -127,3 +127,12 @@
         </div>
     </div>
 @endsection
+
+@section('notification')
+    @if (session('error'))
+        <input type="hidden" name="error" id="error-message" value="{{ session('error') }}">        
+    @elseif (session('success'))
+        <input type="hidden" name="success" id="success-message" value="{{ session('success') }}">
+    @endif
+    <script type="text/javascript" src="{{ asset('js/notification.js') }}"></script>
+@endsection
