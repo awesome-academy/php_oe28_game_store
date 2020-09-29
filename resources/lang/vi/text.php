@@ -119,4 +119,10 @@ return [
         'publisher_not_buy' => 'NHÀ PHÁT HÀNH KHÔNG THỂ MUA GAME',
         'own' => 'BẠN ĐÃ SỞ HỮU GAME, TẢI XUỐNG',
     ],
+    'cart' => [
+        'owned' => 'Bạn đã sở hữu game',
+        'publisher' => 'Tài khoản nhà phát hành không thể mua game',
+        'added' => 'Đã thêm vào giỏ hàng',
+        'existed' => 'Game đã được thêm vào giỏ hàng',
+    ],
 ];
