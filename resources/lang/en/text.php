@@ -119,4 +119,10 @@ return [
         'publisher_not_buy' => 'PUBLISHER CAN NOT BUY GAME',
         'own' => 'YOU OWN THIS GAME, CLICK HERE TO DOWNLOAD',
     ],
+    'cart' => [
+        'owned' => 'You owned this game',
+        'publisher' => 'Publisher can not buy game',
+        'added' => 'Added to cart',
+        'existed' => 'Game already exists in cart',
+    ],
 ];

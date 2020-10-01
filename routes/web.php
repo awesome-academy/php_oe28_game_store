@@ -26,4 +26,6 @@ Route::middleware('locale')->group(function () {
 
     Route::get('games', 'GameController@index')->name('games.index');
     Route::get('game-detail', 'GameController@gameDetail')->name('games.detail');
+
+    Route::get('add-to-cart', 'CartController@add')->name('cart.store');
 });
