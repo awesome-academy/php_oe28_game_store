@@ -1,168 +1,346 @@
-<!Doctype html>
-<html class="no-js" lang="zxx">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
         @yield('page-title', trans('text.app.title'))
     </title>
-    <meta name="description" content="">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ asset('images/favicon.ico') }}" type="img/x-icon" rel="shortcut icon">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/qanto.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/bauhaus93.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/icofont.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/plugins.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/helper.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">
-    <script src="{{ asset('js/vendor/modernizr-2.8.3.min.js') }}"></script>
+    <link rel="icon" type="image/png" href="{{ asset('client/images/icons/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/client/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/fonts/themify/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/fonts/elegant-font/html-css/style.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/vendor/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/vendor/lightbox2/css/lightbox.min.css">
+    @yield('css')
+    <link rel="stylesheet" type="text/css" href="bower_components/client/css/util.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/client/css/main.css">
 </head>
-<body>
-<div id="main-wrapper">
-   
-    <header class="header header-static bg-black header-sticky">
-        <div class="default-header menu-right">
-            <div class="container container-1520">
-                <div class="row">
-                    
-                    <div class="col-12 col-md-3 col-lg-3 order-md-1 order-lg-1 mt-20 mb-20">
-                        <div class="logo">
-                            <a href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}" alt=""></a>
-                        </div>
-                    </div>
+<body class="animsition">
+    <header class="header1">
+        <div class="container-menu-header">
+            <div class="topbar">
+                <div class="topbar-social">
+                    <a href="{{ config('link.facebook') }}" class="topbar-social-item fa fa-facebook"></a>
+                    <a href="{{ config('link.instagram') }}" class="topbar-social-item fa fa-instagram"></a>
+                    <a href="{{ config('link.pinterest') }}" class="topbar-social-item fa fa-pinterest-p"></a>
+                    <a href="{{ config('link.youtube') }}" class="topbar-social-item fa fa-youtube-play"></a>
+                </div>
 
-                    <div class="col-lg-6 col-12 order-md-3 order-lg-2 d-flex justify-content-center">
-                        <nav class="main-menu menu-style-2">
-                            <ul>
-                                <li><a href="#">{{ trans('text.app.games') }}</a></li>
-                                <li><a href="#">{{ trans('text.app.videos') }}</a></li>
-                                <li><a href="#">{{ trans('text.app.blogs') }}</a></li>
-                                <li><a href="#">{{ trans('text.app.cart') }}</a></li>
-                                <li><a href="javascript:void(0)">{{ trans('text.app.language') }}</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{!! route('change-language', ['en']) !!}">{{ trans('text.app.en') }}</a></li>
-                                        <li><a href="{!! route('change-language', ['vi']) !!}">{{ trans('text.app.vi') }}</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                <span class="topbar-child1">
+                    {{ trans('text.app.slogan') }} <i class="fa fa-gamepad"></i>
+                </span>
 
-                    @if (!Auth::check())
-                        <div class="col-12 col-md-9 order-md-2 order-lg-3 col-lg-3">
-                            <div class="header-right-wrap">
-                                <ul>
-                                    <li><a href="{{ route('login') }}">{{ trans('text.app.login') }}</a></li>
-                                    <li><a href="{{ route('register') }}">{{ trans('text.app.register') }}</a></li>
-                                </ul>
-                            </div>
+                <div class="topbar-child2">
+                    <span class="topbar-email">
+                        @if (Auth::check())
+                            {{ Auth::user()->email }}
+                        @endif
+                    </span>
+
+                    <div class="topbar-language rs1-select2">
+                        <select class="selection-1" name="time">
+                            <option value="en" @if (config('app.locale') == config('string.en')) {{ 'selected' }} @endif>EN</option>
+                            <option value="vi" @if (config('app.locale') == config('string.vi')) {{ 'selected' }} @endif>VI</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap_header">
+                <a href="{{ route('home') }}" class="logo">
+                    <img src="{{ asset('client/images/icons/logo2.png') }}" alt="IMG-LOGO">
+                </a>
+
+                <div class="wrap_menu">
+                    <nav class="menu">
+                        <ul class="main_menu">
+                            <li class="sale-noti">
+                                <a href="{{ route('games.index') }}">{{ trans('text.app.games') }}</a>
+                            </li>
+
+                            <li>
+                                <a href="">{{ trans('text.app.videos') }}</a>
+                            </li>
+
+                            <li>
+                                <a href="">{{ trans('text.app.blogs') }}</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('cart.index') }}">{{ trans('text.app.cart') }}</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="header-icons">
+                    @if (Auth::check())
+                        <a href="{{ route('profile.index') }}" class="header-wrapicon1 dis-block">
+                            <img src="{{ asset('client/images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
+                        </a>
+
+                        <span class="linedivide1"></span>
+
+                        <div class="header-wrapicon2">
+                            <img src="{{ asset('client/images/icons/icon-header-02.png') }}" class="header-icon1 js-show-header-dropdown" alt="ICON">
                         </div>
                     @else
-                        <div class="col-12 col-md-9 order-md-2 order-lg-3 col-lg-3">
-                            <div class="header-right-wrap">
-                                <ul>
-                                    <li><a class="dropdown-toggle" href="javascript:void(0)" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i></a>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <button class="dropdown-item" type="button" disabled>
-                                                {{ trans('text.app.logged_in') }} {{ Auth::user()->email }}
-                                            </button>
-                                            <div class="dropdown-divider"></div>
-                                            <button type="submit" class="dropdown-item" type="button">
-                                                @if (Auth::user()->role == config('role.user'))
-                                                    {{ trans('text.app.user_info') }}
-                                                @else
-                                                    {{ trans('text.app.publisher_info') }}
-                                                @endif
-                                            </button>
-                                            <form action="{{ route('logout') }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="dropdown-item" type="button">
-                                                    {{ trans('text.app.logout') }}
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                        <a href="{{ route('login') }}" class="header-wrapicon1 dis-block">
+                            {{ trans('text.app.login') }}
+                        </a>
+
+                        <span class="linedivide1"></span>
+
+                        <a href="{{ route('register') }}" class="header-wrapicon2">
+                            {{ trans('text.app.register') }}
+                        </a>
+                    @endif
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap_header_mobile">
+            <a href="{{ route('home') }}" class="logo-mobile">
+                <img src="{{ asset('client/images/icons/logo2.png') }}" alt="IMG-LOGO">
+            </a>
+
+            <div class="btn-show-menu">
+                <div class="header-icons-mobile">
+                    @if (Auth::check())
+                        <a href="{{ route('profile.index') }}" class="header-wrapicon1 dis-block">
+                            <img src="{{ asset('client/images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
+                        </a>
+
+                        <span class="linedivide2"></span>
+
+                        <div class="header-wrapicon2">
+                            <img src="{{ asset('client/images/icons/icon-header-02.png') }}" class="header-icon1 js-show-header-dropdown" alt="ICON">
                         </div>
                     @endif
                 </div>
-                
-                <div class="row">
-                    <div class="col-12 d-flex d-lg-none">
-                        <div class="mobile-menu"></div>
-                    </div>
+
+                <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
                 </div>
-                
             </div>
+        </div>
+
+        <div class="wrap-side-menu" >
+            <nav class="side-menu">
+                <ul class="main-menu">
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+                        <span class="topbar-child1">
+                            {{ trans('text.app.slogan') }} <i class="fa fa-gamepad"></i>
+                        </span>
+                    </li>
+
+                    <li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
+                        <div class="topbar-child2-mobile">
+                            @if (Auth::check())
+                                <span class="topbar-email">
+                                    {{ Auth::user()->email }}
+                                </span>
+                            @endif
+
+                            <div class="topbar-language rs1-select2">
+                                <select class="selection-1" name="time">
+                                    <option value="en" @if (config('app.locale') == config('string.en')) {{ 'selected' }} @endif>EN</option>
+                                    <option value="vi" @if (config('app.locale') == config('string.vi')) {{ 'selected' }} @endif>VI</option>
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="item-topbar-mobile p-l-10">
+                        <div class="topbar-social-mobile">
+                            <a href="{{ config('link.facebook') }}" class="topbar-social-item fa fa-facebook"></a>
+                            <a href="{{ config('link.instagram') }}" class="topbar-social-item fa fa-instagram"></a>
+                            <a href="{{ config('link.pinterest') }}" class="topbar-social-item fa fa-pinterest-p"></a>
+                            <a href="{{ config('link.youtube') }}" class="topbar-social-item fa fa-youtube-play"></a>
+                        </div>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="{{ route('games.index') }}">{{ trans('text.app.games') }}</a>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a>{{ trans('text.app.videos') }}</a>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a>{{ trans('text.app.blogs') }}</a>
+                    </li>
+
+                    <li class="item-menu-mobile">
+                        <a href="{{ route('cart.index') }}">{{ trans('text.app.cart') }}</a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
-    
+
     @yield('content')
-    
-    <footer class="footer-section style-2 section bg-theme">
-       
-        <div class="footer-top section pt-80 pt-lg-70 pt-md-60 pt-sm-50 pt-xs-40 pb-80 pb-lg-70 pb-md-60 pb-sm-15 pb-xs-40">
-            <div class="container container-1520">
-                <div class="row justify-content-lg-between">
-                    
-                    <div class="col-xl-3 col-lg-2 col-md-3">
-                        <div class="footer-widget">
-                            <div class="footer-logo">
-                                <a href="index.html"><img src="{{ asset('images/logo.png') }}" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-9">
-                        <div class="footer-widget">
-                            <div class="footer-nav">
-                                <nav>
-                                    <ul>
-                                        <li><a href="#">{{ trans('text.app.blogs') }}</a></li>
-                                        <li><a href="#">{{ trans('text.app.cart') }}</a></li>
-                                        <li><a href="#">{{ trans('text.app.contact') }}</a></li>
-                                        <li><a href="#">{{ trans('text.app.terms&conditions') }}</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
+    <footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+        <div class="flex-w p-b-90">
+            <div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+                <img src="{{ asset('client/images/icons/logo2.png') }}" alt="IMG-LOGO">
+                <div>
+                    &nbsp;
+                </div>
 
-                    <div class="col-xl-3 col-lg-4 col-md-12">
-                        <div class="footer-widget">
-                            <div class="footer-social">
-                               <span>{{ trans('text.app.follow_us') }}:</span>
-                                <ul>
-                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
-                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
-                                    <li><a href="#"><i class="icofont-instagram"></i></a></li>
-                                    <li><a href="#"><i class="icofont-youtube-play"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                <div>
+                    <p class="s-text7 w-size27">
+                        {{ trans('text.app.question') }}
+                    </p>
+
+                    <div class="flex-m p-t-30">
+                        <a href="{{ config('link.facebook') }}" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+                        <a href="{{ config('link.instagram') }}" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+                        <a href="{{ config('link.pinterest') }}" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
+                        <a href="{{ config('link.youtube') }}" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
                     </div>
-                    
                 </div>
             </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4"></div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    {{ trans('text.app.links') }}
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a href="{{ route('games.index') }}" class="s-text7">
+                            {{ trans('text.app.games') }}
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a class="s-text7">
+                            {{ trans('text.app.videos') }}
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a class="s-text7">
+                            {{ trans('text.app.blogs') }}
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a href="{{ route('cart.index') }}" class="s-text7">
+                            {{ trans('text.app.cart') }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+                <h4 class="s-text12 p-b-30">
+                    {{ trans('text.app.help') }}
+                </h4>
+
+                <ul>
+                    <li class="p-b-9">
+                        <a class="s-text7">
+                            {{ trans('text.app.history') }}
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a class="s-text7">
+                            {{ trans('text.app.refund') }}
+                        </a>
+                    </li>
+
+                    <li class="p-b-9">
+                        <a class="s-text7">
+                            {{ trans('text.app.faqs') }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+                <h4 class="s-text12 p-b-30">
+                    {{ trans('text.app.newsletter') }}
+                </h4>
+
+                <form>
+                    <div class="effect1 w-size9">
+                        <input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+                        <span class="effect1-line"></span>
+                    </div>
+
+                    <div class="w-size2 p-t-20">
+                        <button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+                            {{ trans('text.app.subcribe') }}
+                        </button>
+                    </div>
+
+                </form>
+            </div>
         </div>
-        
-     </footer>
-    
-</div>
 
-<script src="{{ asset('js/vendor/jquery-1.12.4.min.js') }}"></script>
-<script src="{{ asset('js/popper.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/toastr.min.js') }}"></script>
-<script src="{{ asset('js/sweetalert2.all.js') }}"></script>
-<script src="{{ asset('js/plugins.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
+        <div class="t-center p-l-15 p-r-15">
+            <a>
+                <img class="h-size2" src="{{ asset('client/images/icons/paypal.png') }}" alt="IMG-PAYPAL">
+            </a>
 
-@yield('notification')
+            <a>
+                <img class="h-size2" src="{{ asset('client/images/icons/visa.png') }}" alt="IMG-VISA">
+            </a>
 
+            <a>
+                <img class="h-size2" src="{{ asset('client/images/icons/mastercard.png') }}" alt="IMG-MASTERCARD">
+            </a>
+
+            <a>
+                <img class="h-size2" src="{{ asset('client/images/icons/express.png') }}" alt="IMG-EXPRESS">
+            </a>
+
+            <a>
+                <img class="h-size2" src="{{ asset('client/images/icons/discover.png') }}" alt="IMG-DISCOVER">
+            </a>
+
+            @include('layouts.copyright')
+        </div>
+    </footer>
+
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <div id="dropDownSelect1"></div>
+
+    <script type="text/javascript" src="bower_components/client/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="bower_components/client/vendor/animsition/js/animsition.min.js"></script>
+    <script type="text/javascript" src="bower_components/client/vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="bower_components/client/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/client/vendor/select2/select2.min.js"></script>
+    <script type="text/javascript" src="bower_components/client/js/localization.js"></script>
+    <script type="text/javascript" src="bower_components/client/vendor/slick/slick.min.js"></script>
+    <script type="text/javascript" src="bower_components/client/js/slick-custom.js"></script>
+    <script type="text/javascript" src="bower_components/client/vendor/countdowntime/countdowntime.js"></script>
+    <script type="text/javascript" src="bower_components/client/vendor/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="bower_components/client/vendor/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript" src="bower_components/client/js/cart.js"></script>
+    @yield('js')
+    <script src="bower_components/client/js/main.js"></script>
 </body>
 </html>
