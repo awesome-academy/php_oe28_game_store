@@ -166,4 +166,16 @@ return [
         'update-message' => 'Comment has been Updated!',
         'delete-message' => 'Comment has been Deleted!',
     ],
+    'create-post' => [
+        'title' => 'Create Post || Game Store',
+        'create_post' => 'Create Post',
+        'info' => 'Post\'s Infomation',
+        'label_title' => 'Title',
+        'label_preview' => 'A preview image',
+        'recommend' => '820 x 481, < 2MB recommended for display in blogs list, blog detail.',
+        'summary' => 'Summary',
+        'content' => 'Content',
+        'post' => 'POST',
+        'messgae' => 'Your post has been Publish! View this Post?',
+    ],
 ];
