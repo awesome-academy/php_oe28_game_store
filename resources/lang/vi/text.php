@@ -165,4 +165,16 @@ return [
         'update-message' => 'Bình luận đã được Sửa!',
         'delete-message' => 'Bình luận đã được Xóa!',
     ],
+    'create-post' => [
+        'title' => 'Viết Blogs || Game Store',
+        'create_post' => 'Viết Blogs',
+        'info' => 'Thông tin bài viết',
+        'label_title' => 'Tiêu đề',
+        'label_preview' => 'Ảnh xem trước',
+        'recommend' => 'Lưu ý: Kích thước ảnh nên là 820 x 481, < 2MB để hiển thị trên danh sách blogs, chi tiết blogs.',
+        'summary' => 'Tóm tắt',
+        'content' => 'Nội dung',
+        'post' => 'ĐĂNG BÀI',
+        'message' => 'Bài viết của bạn đã được đăng, xem bài viết?',
+    ],
 ];
