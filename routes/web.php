@@ -46,6 +46,8 @@ Route::middleware('locale')->group(function () {
     Route::get('/publish-game', 'PublisherController@index')->name('publisher.index');
     Route::post('/publish-game', 'PublisherController@publish')->name('publisher.publish');
     Route::get('/publisher-request', 'MailController@publisherRequest')->name('publisher.request');
+    Route::get('/create-post', 'PublisherController@createPost')->name('create.post');
+    Route::post('/store-post', 'PublisherController@storePost')->name('store.post');
 
     Route::resource('/blogs', 'BlogController');
     Route::post('/post-comment', 'CommentController@create')->name('post.comment');
