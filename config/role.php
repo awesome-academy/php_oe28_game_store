@@ -5,5 +5,6 @@ return [
     'publisher' => 2,
     'admin' => 3,
     'guest' => 4,
-    'limit_new_games' => 2,
+    'become_publisher' => 5,
+    'admin' => 9,
 ];
