@@ -178,4 +178,63 @@ return [
         'post' => 'POST',
         'messgae' => 'Your post has been Publish! View this Post?',
     ],
+    'admin' => [
+        'app' => [
+            'online' => 'Online',
+            'logout' =>'Logout',
+            'back' => 'Back to Game Store',
+            'app_name' => 'Game Store',
+            'dashboard' => 'Dashboard',
+            'models' => 'Models',
+            'account' => 'Account',
+            'game' => 'Game',
+            'genre' => 'Genre',
+            'payment' => 'Payment',
+            'post' => 'Post',
+            'publisher' => 'Publisher',
+            'user' => 'User',
+            'requests' => 'Requests',
+            'publish_game' => 'Publish Game',
+            'become_publisher' => 'Become Publisher',
+        ],
+        'dashboard' => [
+            'title' => 'Dashboard || Game Store',
+            'welcome' => 'Welcome',
+            'welcome_message' => '<p class="m-auto w-75">You have <strong>:pendingGame</strong> games pending to be published today. And <strong>:publisherRequest</strong> request to become publisher.</p>',
+        ],
+        'account' => [
+            'update_success' => 'Account has been Updated !',
+            'update_fail' => 'Failed !',
+            'delete_success' => 'Account has been Deleted !',
+            'delete_fail' => 'Failed !',
+        ],
+        'comment' => [
+            'delete_success' => 'Comment has been Deleted !',
+            'delete_fail' => 'Failed !',
+        ],
+        'game' => [
+            'delete_success' => 'Game has been Deleted !',
+            'delete_fail' => 'Failed !',
+        ],
+        'genre' => [
+            'delete_success' => 'Genre has been Deleted !',
+            'delete_fail' => 'Failed !',
+        ],
+        'pending_game' => [
+            'publish_success' => 'Game has been published !',
+            'publish_fail' => 'Failed !',
+            'delete_success' => 'Game has been Deleted !',
+            'delete_fail' => 'Failed !',
+        ],
+        'post' => [
+            'delete_success' => 'Post has been Deleted !',
+            'delete_fail' => 'Failed !',
+        ],
+        'publisher_request' => [
+            'store_success' => 'Account has been become Publisher !',
+            'store_fail' => 'Failed !',
+            'delete_success' => 'Account is still User !',
+            'delete_fail' => 'Failed !',
+        ],
+    ],
 ];

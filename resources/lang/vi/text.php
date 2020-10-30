@@ -177,4 +177,63 @@ return [
         'post' => 'ĐĂNG BÀI',
         'message' => 'Bài viết của bạn đã được đăng, xem bài viết?',
     ],
+    'admin' => [
+        'app' => [
+            'online' => 'Online',
+            'logout' =>'Đăng xuất',
+            'back' => 'Quay lại Game Store',
+            'app_name' => 'Game Store',
+            'dashboard' => 'Bảng điều khiển',
+            'models' => 'Models',
+            'account' => 'Tài khoản',
+            'game' => 'Trò Chơi',
+            'genre' => 'Thể loại',
+            'payment' => 'Thanh toán',
+            'post' => 'Bài viết',
+            'publisher' => 'Nhà phát hành',
+            'user' => 'Người dùng',
+            'requests' => 'Yêu cầu',
+            'publish_game' => 'Phát hành game',
+            'become_publisher' => 'Trở thành Nhà phát hành',
+        ],
+        'dashboard' => [
+            'title' => 'Bảng điều khiển || Game Store',
+            'welcome' => 'Xin chào',
+            'welcome_message' => '<p class="m-auto w-75">Bạn có <strong>:pendingGame</strong> trò chơi đang chờ được duyệt hôm nay. Và <strong>:publisherRequest</strong> yêu cầu trở thành nhà phát hành.</p>',
+        ],
+        'account' => [
+            'update_success' => 'Tài khoản đã được Cập nhật !',
+            'update_fail' => 'Lỗi !',
+            'delete_success' => 'Tài khoản đã được Xóa !',
+            'delete_fail' => 'Lỗi !',
+        ],
+        'comment' => [
+            'delete_success' => 'Bình luận đã được Xóa !',
+            'delete_fail' => 'Lỗi !',
+        ],
+        'game' => [
+            'delete_success' => 'Trò chơi đã được Xóa !',
+            'delete_fail' => 'Lỗi !',
+        ],
+        'genre' => [
+            'delete_success' => 'Thể loại đã được Xóa !',
+            'delete_fail' => 'Lỗi !',
+        ],
+        'pending_game' => [
+            'publish_success' => 'Trò chơi đã được Phát hành !',
+            'publish_fail' => 'Lỗi !',
+            'delete_success' => 'Trò chơi đã được Xóa !',
+            'delete_fail' => 'Lỗi !',
+        ],
+        'post' => [
+            'delete_success' => 'Bài viết đã được Xóa !',
+            'delete_fail' => 'Lỗi !',
+        ],
+        'publisher_request' => [
+            'store_success' => 'Tài khoản đã được trở thành Nhà phát hành !',
+            'store_fail' => 'Lỗi !',
+            'delete_success' => 'Yêu cầu được hủy !',
+            'delete_fail' => 'Lỗi !',
+        ],
+    ],
 ];
