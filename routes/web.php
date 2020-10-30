@@ -53,4 +53,20 @@ Route::middleware('locale')->group(function () {
     Route::post('/post-comment', 'CommentController@create')->name('post.comment');
     Route::delete('/delete-comment/{id}', 'CommentController@destroy')->name('delete.comment');
     Route::post('/update-comment', 'CommentController@update')->name('update.comment');
+
+    Route::group(['namespace' => 'Admin'], function () {
+        Route::get('/admin', 'HomeController@index')->name('admin.index');
+
+        Route::resource('/manage-accounts', 'AccountController');
+        Route::resource('/manage-comments', 'CommentController');
+        Route::resource('/manage-games', 'GameController');
+        Route::resource('/manage-genres', 'GenreController');
+        Route::resource('/manage-payments', 'PaymentController');
+        Route::resource('/manage-posts', 'PostController');
+        Route::resource('/manage-publishers', 'PublisherController');
+        Route::resource('/manage-users', 'UserController');
+
+        Route::resource('/pending-games', 'PendingGameController');
+        Route::resource('/publisher-requests', 'PublisherRequestController');
+    });
 });
